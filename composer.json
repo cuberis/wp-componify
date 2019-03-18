@@ -1,0 +1,13 @@
+{
+  "name": "cuberis/wp-componify",
+  "description": "Components, our flexible content system.",
+  "license": "GPL-2.0-or-later",
+  "autoload": {
+    "psr-4": {
+      "Cuberis\\Base\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=7"
+  }
+}
