@@ -12,7 +12,8 @@ Components, our flexible content system.
 
 1. Setup new template parts in `/templates/components/` to match against ACF Flexible Content layout slugs.
 2. Instantiate new **Componify** class in your page template.
-3. Sit back and enjoy!
+3. To enable the UI portion—declare theme support by `add_theme_support('components-ui')`.
+4. Sit back and enjoy!
 
 ```php
 <?php while (have_posts()) : the_post(); ?>
@@ -53,7 +54,7 @@ function cuberis_filter_component_html_attributes($attrs, $slug) {
   }
 
   // Add a new attribute to all components.
-  $attrs['data-id'] = uniqid();
+  $attrs['data-unique-id'] = uniqid();
 
   return $attrs;
 }

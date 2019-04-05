@@ -1,0 +1,13 @@
+.scrolled {
+  -webkit-animation: hilite 2s infinite;
+  -webkit-animation-iteration-count: 1;
+}
+
+@-webkit-keyframes hilite {
+  0% {
+    background-color: gold
+  }
+  to {
+    background-color: #fff
+  }
+}

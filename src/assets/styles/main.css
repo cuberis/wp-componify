@@ -1,0 +1,38 @@
+.component,
+.component:hover {
+  position: relative;
+}
+
+.component:hover {
+  outline: 3px dashed #29abe9;
+  background: #d8eaf3;
+}
+
+.component:hover .component-ui-btn {
+  display: block;
+}
+
+.component .component-ui-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, .8) !important;
+  color: #fff !important;
+  border-radius: 0 !important;
+  display: none;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  line-height: 1.42857 !important;
+  border: none !important;
+  padding: 5px 30px !important;
+}
+
+.component .component-ui-btn:focus,
+.component .component-ui-btn:hover {
+  background: #000 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
