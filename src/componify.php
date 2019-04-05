@@ -11,6 +11,13 @@ class Componify {
   public $htmlElem;
 
   /**
+   * ID of the current post.
+   *
+   * @var int
+   */
+  public $post_id;
+
+  /**
    * Optional prefix for components.
    *
    * @var string
@@ -24,6 +31,7 @@ class Componify {
    */
   public function __construct($prefix = null) {
     $this->htmlElem = get_theme_support('html5') ? 'section' : 'div';
+    $this->post_id = get_the_ID();
     $this->prefix = $prefix;
   }
 
@@ -53,9 +61,11 @@ class Componify {
    *
    * @param string $slug
    */
-  private function get_opening_elem($slug) {
+  private function get_opening_elem($slug, $i) {
     $attrs = apply_filters('cuberis_set_component_html_attributes', [
-      "class" => "component component--{$slug}"
+      "class"      => "component component--{$slug}",
+      "data-id"    => $this->post_id,
+      "data-index" => $i
     ], $slug);
 
     echo "<{$this->htmlElem} {$this->build_html_attributes($attrs)}>";
@@ -82,12 +92,13 @@ class Componify {
     if (have_rows($this->prefix . 'components') && !post_password_required()) {
       while (have_rows($this->prefix . 'components')) {
         the_row();
+        $i = get_row_index();
         $slug = sanitize_title_with_dashes(get_row_layout());
 
         /**
          * Render the component and wrapping HTML element!
          */
-        $this->get_opening_elem($slug);
+        $this->get_opening_elem($slug, $i);
         get_template_part('templates/components/component', $slug);
         $this->get_closing_elem();
       }
